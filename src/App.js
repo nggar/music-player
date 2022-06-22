@@ -1,9 +1,16 @@
-import React from 'react';
+// import Components
+import Nav from './components/Nav';
+import DisplayCurrentSong from './components/DisplayCurrentSong';
+import Controller from './components/Controller';
+import SongLibrary from './components/SongLibrary';
 
 function App() {
     return (
         <div className="App">
-            <h1>Hello There</h1>
+            <Nav />
+            <DisplayCurrentSong />
+            <Controller />
+            <SongLibrary />
         </div>
     );
 }
