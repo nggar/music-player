@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // import Components
 import Nav from './components/Nav';
 import DisplayCurrentSong from './components/DisplayCurrentSong';
@@ -9,10 +10,14 @@ import musicSource from './utils/musicSource';
 import './styles/App.scss';
 
 function App() {
+    // States
+    const [songs, setSongs] = useState( musicSource() );
+    const [currentSong, setCurrentSong] = useState( songs[0] );
+
     return (
         <div className="App">
             <Nav />
-            <DisplayCurrentSong />
+            <DisplayCurrentSong currentSong={currentSong} />
             <Controller />
             <SongLibrary />
         </div>
