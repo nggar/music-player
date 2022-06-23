@@ -1,74 +1,73 @@
 .controller {
-    min-height: 20%;
+    min-height: 20vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time {
+    width: 40%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1.5rem;
 
-    .time {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        margin-bottom: 1rem;
+    &__track {
+        width: 100%;
+        height: 1rem;
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
 
-        &__track {
+        input {
             width: 100%;
-            height: 1rem;
-            position: relative;
-            border-radius: 1rem;
-            overflow: hidden;
+            -webkit-appearance: none;
+            background-color: transparent;
+            cursor: pointer;
 
-            input {
-                width: 100%;
+            &:focus {
+                outline: none;
+            }
+
+            &::-webkit-slider-thumb {
                 -webkit-appearance: none;
-                background-color: transparent;
-                cursor: pointer;
-
-                &:focus {
-                    outline: none;
-                }
-
-                &::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                &::-moz-slider-thumb {
-                    -webkit-appearance: none;
-                    background: transparent;
-                    border: none;
-                }
+                height: 16px;
+                width: 16px;
             }
 
-            &__animation {
-                background-color: rgb(220, 220, 220);
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                transform: translateX(0%);
-                pointer-events: none;
+            &::-moz-slider-thumb {
+                -webkit-appearance: none;
+                background: transparent;
+                border: none;
             }
         }
 
-        p {
-            padding: 1rem;
+        .animate-track {
+            background-color: rgb(220, 220, 220);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transform: translateX(0%);
+            pointer-events: none;
         }
+
     }
 
-    .play {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 35%;
+    p {
         padding: 1rem;
+    }
+}
 
-        svg {
-            cursor: pointer;
-        }
+.play {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    width: 30%;
+
+    svg {
+        cursor: pointer;
     }
 }
