@@ -16,14 +16,29 @@ function App() {
     const [songs, setSongs] = useState( musicSource() );
     const [currentSong, setCurrentSong] = useState( songs[0] );
     const [isPlaying, setIsPlaying] = useState( false );
+    const [libraryStatus, setLibraryStatus] = useState( false );
 
     return (
-        <div className="App">
-            <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-            <DisplayCurrentSong currentSong={currentSong} />
+        <div className={`App ${libraryStatus ? 'song-library-active' : ''}`}>
+            <Nav
+                libraryStatus={libraryStatus}
+                setLibraryStatus={setLibraryStatus}
+            />
+            <DisplayCurrentSong
+                currentSong={currentSong}
+            />
             <Controller
-                songs={songs} setSong={setSongs} currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-            <SongLibrary />
+                songs={songs}
+                setSongs={setSongs}
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+            />
+            <SongLibrary
+                songs={songs}
+                libraryStatus={libraryStatus}
+            />
         </div>
     );
 }

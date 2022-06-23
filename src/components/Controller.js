@@ -13,7 +13,9 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying }
             </div>
             <div className="play">
                 <SkipBack strokeWidth={2} size={32} />
-                {isPlaying ? <Play strokeWidth={2} size={32} /> : <Pause strokeWidth={2} size={32} />}
+                <div className="play-pause">
+                    {isPlaying ? <Play strokeWidth={2} size={32} /> : <Pause strokeWidth={2} size={32} />}
+                </div>
                 <SkipForward strokeWidth={2} size={32} />
             </div>
         </div>
