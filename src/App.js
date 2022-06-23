@@ -13,12 +13,14 @@ function App() {
     // States
     const [songs, setSongs] = useState( musicSource() );
     const [currentSong, setCurrentSong] = useState( songs[0] );
+    const [isPlaying, setIsPlaying] = useState( false );
 
     return (
         <div className="App">
             <Nav />
             <DisplayCurrentSong currentSong={currentSong} />
-            <Controller />
+            <Controller
+                songs={songs} setSong={setSongs} currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
             <SongLibrary />
         </div>
     );
