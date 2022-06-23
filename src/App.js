@@ -17,6 +17,24 @@ function App() {
     const [currentSong, setCurrentSong] = useState( songs[0] );
     const [isPlaying, setIsPlaying] = useState( false );
     const [libraryStatus, setLibraryStatus] = useState( false );
+    const [currentSongInfo, setCurrentSongInfo] = useState(
+        {
+            currentTime: 0,
+            duration: 0
+        }
+    );
+
+    // get time information on current song
+    const timeUpdateHandler = ( e ) => {
+        let current = e.target.currentTime; // this currentTime and duration is property from audio tag
+        let duration = e.target.duration;
+
+        setCurrentSongInfo( {
+            currentTime: current,
+            duration: duration
+        } )
+    }
+
 
     return (
         <div className={`App ${libraryStatus ? 'song-library-active' : ''}`}>
@@ -34,11 +52,20 @@ function App() {
                 setCurrentSong={setCurrentSong}
                 isPlaying={isPlaying}
                 setIsPlaying={setIsPlaying}
+                currentSongInfo={currentSongInfo}
+                setCurrentSongInfo={setCurrentSongInfo}
+                audioRef={audioRef}
             />
             <SongLibrary
                 songs={songs}
                 libraryStatus={libraryStatus}
             />
+            <audio
+                src={currentSong.audio}
+                ref={audioRef}
+                onLoadedMetadata={timeUpdateHandler}
+                onTimeUpdate={timeUpdateHandler} >
+            </audio>
         </div>
     );
 }
