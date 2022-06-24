@@ -32,7 +32,7 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
     }
 
     // skip functionality
-    const skipSongHandler = ( direction ) => {
+    const skipSongHandler = async ( direction ) => {
         // find index of current song
         const currentSongIndex = songs.findIndex( song => {
             return song.id === currentSong.id;
@@ -40,16 +40,21 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
 
         // skip forward
         if ( direction === 'skip-forward' ) {
-            setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
+            await setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
         }
         // skip back
         if ( direction === 'skip-back' ) {
             if ( ( currentSongIndex - 1 ) === - 1 ) {
-                setCurrentSong( songs[songs.length - 1] );
+                await setCurrentSong( songs[songs.length - 1] );
+                if ( isPlaying ) audioRef.current.play();
+                return;
             } else {
-                setCurrentSong( songs[( currentSongIndex - 1 )] );
+                await setCurrentSong( songs[( currentSongIndex - 1 )] );
             }
         }
+        // autoplay when skip song
+        if ( isPlaying ) audioRef.current.play();
+
     }
 
 
