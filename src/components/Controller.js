@@ -60,6 +60,8 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
 
 
 
+
+
     return (
         <div className="controller">
             <div className="time">
