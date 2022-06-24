@@ -10,8 +10,9 @@ import musicSource from './utils/musicSource';
 import './styles/App.scss';
 
 function App() {
-    // Ref
-    const audioRef = useRef( undefined );
+
+    // Ref to audio tag
+    const audioRef = useRef( 0 );
     // States
     const [songs, setSongs] = useState( musicSource() );
     const [currentSong, setCurrentSong] = useState( songs[0] );
@@ -20,7 +21,8 @@ function App() {
     const [currentSongInfo, setCurrentSongInfo] = useState(
         {
             currentTime: 0,
-            duration: 0
+            duration: 0,
+            animationPercentage: 0
         }
     );
 
@@ -29,9 +31,14 @@ function App() {
         let current = e.target.currentTime; // this currentTime and duration is property from audio tag
         let duration = e.target.duration;
 
+        // calculate percentage
+        let animationPercentage = Math.round( ( current / duration ) * 100 );
+
         setCurrentSongInfo( {
+            ...currentSongInfo,
             currentTime: current,
-            duration: duration
+            duration: duration,
+            animationPercentage
         } )
     }
 

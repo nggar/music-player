@@ -8,9 +8,18 @@ const musicSource = () => {
             cover: "https://chillhop.com/wp-content/uploads/2022/05/42878bcb02c1a3613f4913b226674cd36bac9830-1024x1024.jpg",
             artist: "Smile High, Richard Vagner",
             audio: "https://mp3.chillhop.com/serve.php/?mp3=36650",
-            color: ['#274477', '#C89601'],
+            color: ['#C89601', '#274477'],
             id: uuidv4(),
             active: true,
+        },
+        {
+            name: "Inside a Saltwater Room",
+            cover: "https://chillhop.com/wp-content/uploads/2021/09/6a9ef8ac00e168d3308fdf9e336874c03fab829d-1024x1024.jpg",
+            artist: "Delayde",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=23193",
+            color: ['#81D1A4', '#627AE0'],
+            id: uuidv4(),
+            active: false,
         },
         {
             name: "Pale Fire",
@@ -30,15 +39,7 @@ const musicSource = () => {
             id: uuidv4(),
             active: false,
         },
-        {
-            name: "Inside a Saltwater Room",
-            cover: "https://chillhop.com/wp-content/uploads/2021/09/6a9ef8ac00e168d3308fdf9e336874c03fab829d-1024x1024.jpg",
-            artist: "Delayde",
-            audio: "https://mp3.chillhop.com/serve.php/?mp3=23193",
-            color: ['#81D1A4', '#627AE0'],
-            id: uuidv4(),
-            active: false,
-        },
+
         {
             name: "Benson & Hedges",
             cover: "https://chillhop.com/wp-content/uploads/2022/04/73f23095038f6f023083520706f3e5345f5dd682-1024x1024.jpg",

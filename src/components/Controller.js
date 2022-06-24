@@ -1,6 +1,6 @@
 import { Play, SkipBack, SkipForward, Pause } from 'react-feather';
 
-const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying, currentSongInfo, setcurrentSongInfo, audioRef } ) => {
+const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying, currentSongInfo, setCurrentSongInfo, audioRef } ) => {
 
     // get time info
     const getTime = ( time ) => {
@@ -20,6 +20,38 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
         }
     }
 
+    // get value from input 
+    const dragHandler = ( e ) => {
+        audioRef.current.currentTime = e.target.value;
+        setCurrentSongInfo( { ...currentSongInfo, currentTime: e.target.value } )
+    }
+
+    // style track animation
+    const trackAnimation = {
+        transform: `translateX(${currentSongInfo.animationPercentage}%)`
+    }
+
+    // skip functionality
+    const skipSongHandler = ( direction ) => {
+        // find index of current song
+        const currentSongIndex = songs.findIndex( song => {
+            return song.id === currentSong.id;
+        } );
+
+        // skip forward
+        if ( direction === 'skip-forward' ) {
+            setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
+        }
+        // skip back
+        if ( direction === 'skip-back' ) {
+            if ( ( currentSongIndex - 1 ) === - 1 ) {
+                setCurrentSong( songs[songs.length - 1] );
+            } else {
+                setCurrentSong( songs[( currentSongIndex - 1 )] );
+            }
+        }
+    }
+
 
 
 
@@ -27,19 +59,25 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
         <div className="controller">
             <div className="time">
                 <p className="time__current">{getTime( currentSongInfo.currentTime )}</p>
-                <div className="time__track">
-                    <input type="range" />
-                    <div className="animate-track"></div>
+                <div className="time__track"
+                    style={{ background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})` }}>
+                    <input type="range"
+                        onChange={dragHandler}
+                        min={0}
+                        max={currentSongInfo.duration || 0}
+                        value={currentSongInfo.currentTime}
+                    />
+                    <div style={trackAnimation} className="animate-track"></div>
                 </div>
                 <p className="time__duration">{getTime( currentSongInfo.duration )}</p>
             </div>
             <div className="play">
-                <SkipBack size={30} />
+                <SkipBack size={30} onClick={() => skipSongHandler( 'skip-back' )} />
                 {isPlaying ?
                     <Pause size={30} onClick={playCurrentSongHandler} /> :
                     <Play style={{ paddingTop: "2px" }} size={30} onClick={playCurrentSongHandler} />
                 }
-                <SkipForward size={30} />
+                <SkipForward size={30} onClick={() => skipSongHandler( 'skip-forward' )} />
             </div>
         </div>
     )
