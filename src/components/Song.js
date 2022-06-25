@@ -1,6 +1,28 @@
-const Song = ( { song } ) => {
+const Song = ( { song, songs, setCurrentSong, id, audioRef, isPlaying, setSongs } ) => {
+
+    const songSelectHandler = async () => {
+        await setCurrentSong( song );
+        // Add active state
+        const newSongs = songs.map( ( song ) => {
+            if ( song.id === id ) {
+                return {
+                    ...song,
+                    active: true,
+                };
+            } else {
+                return {
+                    ...song,
+                    active: false,
+                };
+            }
+        } );
+        setSongs( newSongs );
+        // check if the song playing
+        if ( isPlaying ) audioRef.current.play();
+    }
+
     return (
-        <div className="song">
+        <div onClick={songSelectHandler} className={`song ${song.active ? 'selected' : ''}`}>
             <img src={song.cover} alt={song.name} />
             <div className="song-info">
                 <h3 className="song-info__title">

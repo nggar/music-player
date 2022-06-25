@@ -42,14 +42,12 @@ function App() {
         } )
     }
 
+    // autoplay next song when song ended
     const songEndedHandler = async () => {
-        const currentSongIndex = songs.findIndex( song => {
-            return song.id === currentSong.id;
-        } );
-        await setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
-        if ( isPlaying ) audioRef.current.play();
+        let currentIndex = songs.findIndex( ( song ) => song.id === currentSong.id );
+        await setCurrentSong( songs[( currentIndex + 1 ) % songs.length] );
+        return audioRef.current.play();
     }
-
 
 
 
@@ -75,7 +73,11 @@ function App() {
                 audioRef={audioRef}
             />
             <SongLibrary
+                audioRef={audioRef}
                 songs={songs}
+                setCurrentSong={setCurrentSong}
+                isPlaying={isPlaying}
+                setSongs={setSongs}
                 libraryStatus={libraryStatus}
             />
             <audio

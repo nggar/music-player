@@ -10,7 +10,7 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
     };
 
     // play and pause current song
-    const playCurrentSongHandler = () => {
+    const playCurrentSongHandler = async () => {
         if ( isPlaying ) {
             audioRef.current.pause();
             setIsPlaying( !isPlaying );
@@ -18,6 +18,7 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
             audioRef.current.play();
             setIsPlaying( !isPlaying );
         }
+
     }
 
     // get value from input 
@@ -38,27 +39,44 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
             return song.id === currentSong.id;
         } );
 
-        // skip forward
+        // skip forward;
         if ( direction === 'skip-forward' ) {
             await setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
+            activeLibraryHandler( songs[( currentSongIndex + 1 ) % songs.length] );
         }
         // skip back
         if ( direction === 'skip-back' ) {
             if ( ( currentSongIndex - 1 ) === - 1 ) {
                 await setCurrentSong( songs[songs.length - 1] );
+                activeLibraryHandler( songs[songs.length - 1] );
                 if ( isPlaying ) audioRef.current.play();
                 return;
             } else {
                 await setCurrentSong( songs[( currentSongIndex - 1 )] );
+                activeLibraryHandler( songs[( currentSongIndex - 1 ) % songs.length] );
             }
         }
         // autoplay when skip song
         if ( isPlaying ) audioRef.current.play();
-
     }
 
-
-
+    // change each song active status
+    const activeLibraryHandler = ( nextPrev ) => {
+        const newSongs = songs.map( ( song ) => {
+            if ( song.id === nextPrev.id ) {
+                return {
+                    ...song,
+                    active: true,
+                };
+            } else {
+                return {
+                    ...song,
+                    active: false,
+                };
+            }
+        } );
+        setSongs( newSongs );
+    }
 
 
 
@@ -76,7 +94,7 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
                     />
                     <div style={trackAnimation} className="animate-track"></div>
                 </div>
-                <p className="time__duration">{getTime( currentSongInfo.duration )}</p>
+                <p className="time__duration">{currentSongInfo.duration ? getTime( currentSongInfo.duration ) : "0:00"}</p>
             </div>
             <div className="play">
                 <SkipBack size={30} onClick={() => skipSongHandler( 'skip-back' )} />
