@@ -25,3 +25,9 @@ button {
         color: white;
     }
 }
+
+@media screen and (max-width: 768px) {
+    button {
+        z-index: 2;
+    }
+}

@@ -29,6 +29,18 @@ h4 {
     margin-left: 10rem;
 }
 
+@media screen and (max-width: 1028px) {
+    .song-library-active {
+        margin-left: 15rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .song-library-active {
+        margin-left: 0;
+    }
+}
+
 @import './nav';
 @import './displayCurrentSong';
 @import './controller';

@@ -69,3 +69,37 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 1028px) {
+    .controller {
+        .time {
+            width: 70%;
+        }
+
+        .play {
+            width: 50%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .controller {
+        .time {
+            width: 80%;
+
+            &__current {
+                padding-left: 0;
+            }
+
+            &__duration {
+                padding-right: 0;
+            }
+        }
+
+        .play {
+            width: 60%;
+        }
+    }
+
+}

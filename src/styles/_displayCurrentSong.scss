@@ -19,3 +19,27 @@
         font-size: 1rem;
     }
 }
+
+@media screen and (max-width: 1028px) {
+    .display-song {
+        &__cover {
+            width: 30%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .display-song {
+        &__cover {
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .display-song {
+        &__cover {
+            width: 70%;
+        }
+    }
+}

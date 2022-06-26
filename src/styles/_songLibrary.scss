@@ -42,3 +42,13 @@
     border-radius: 50px;
     border: transparent;
 }
+
+@media screen and (max-width: 768px) {
+    .song-library {
+        width: 100%;
+
+        h2 {
+            padding-top: 1.5rem;
+        }
+    }
+}
