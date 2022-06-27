@@ -27,6 +27,11 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        padding: 0 2.5rem;
+    }
+
     button {
         z-index: 2;
     }

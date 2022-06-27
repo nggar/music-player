@@ -12,7 +12,7 @@ import './styles/App.scss';
 function App() {
 
     // Ref to audio tag
-    const audioRef = useRef( true );
+    const audioRef = useRef( null );
     // States
     const [songs, setSongs] = useState( musicSource() );
     const [currentSong, setCurrentSong] = useState( songs[0] );
@@ -42,34 +42,14 @@ function App() {
         } )
     }
 
-    // change each song active status
-    const activeLibraryHandler = ( nextPrev ) => {
-        const newSongs = songs.map( ( song ) => {
-            if ( song.id === nextPrev.id ) {
-                return {
-                    ...song,
-                    active: true,
-                };
-            } else {
-                return {
-                    ...song,
-                    active: false,
-                };
-            }
-        } );
-        setSongs( newSongs );
-    }
-
-    // // autoplay next song when song ended
     const songEndedHandler = async () => {
-        let currentIndex = songs.findIndex( ( song ) => song.id === currentSong.id );
-        await setCurrentSong( songs[( currentIndex + 1 ) % songs.length] );
-        activeLibraryHandler( songs[( currentIndex + 1 ) % songs.length] )
-
+        let currentSongIndex = songs.findIndex( song => song.id === currentSong.id );
+        setCurrentSong( songs[( currentSongIndex + 1 )] );
         if ( isPlaying ) {
-            audioRef.current.play();
+            audioRef.current.autoplay = true;
         }
     }
+
 
 
     return (
