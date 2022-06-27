@@ -61,21 +61,24 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
         if ( direction === 'skip-forward' ) {
             await setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
             activeLibraryHandler( songs[( currentSongIndex + 1 ) % songs.length] );
+            // autoplay when skip song
+            if ( isPlaying ) audioRef.current.play();
         }
         // skip back
         if ( direction === 'skip-back' ) {
             if ( ( currentSongIndex - 1 ) === - 1 ) {
                 await setCurrentSong( songs[songs.length - 1] );
                 activeLibraryHandler( songs[songs.length - 1] );
+                // autoplay when skip song
                 if ( isPlaying ) audioRef.current.play();
                 return;
             } else {
                 await setCurrentSong( songs[( currentSongIndex - 1 )] );
                 activeLibraryHandler( songs[( currentSongIndex - 1 ) % songs.length] );
+                // autoplay when skip song
+                if ( isPlaying ) audioRef.current.play();
             }
         }
-        // autoplay when skip song
-        if ( isPlaying ) audioRef.current.play();
     }
 
 
