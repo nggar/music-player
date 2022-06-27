@@ -42,9 +42,30 @@ function App() {
         } )
     }
 
+    // active song indicator
+    const activeLibraryHandler = ( nextPrev ) => {
+        const newSongs = songs.map( ( song ) => {
+            if ( song.id === nextPrev.id ) {
+                return {
+                    ...song,
+                    active: true,
+                };
+            } else {
+                return {
+                    ...song,
+                    active: false,
+                };
+            }
+        } );
+        setSongs( newSongs );
+    }
+
+    // autoskip when song ended
     const songEndedHandler = async () => {
         let currentSongIndex = songs.findIndex( song => song.id === currentSong.id );
-        setCurrentSong( songs[( currentSongIndex + 1 )] );
+        setCurrentSong( songs[( currentSongIndex + 1 ) % songs.length] );
+        activeLibraryHandler( songs[( currentSongIndex + 1 ) % songs.length] );
+
         if ( isPlaying ) {
             audioRef.current.autoplay = true;
         }

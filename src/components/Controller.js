@@ -32,6 +32,24 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
         transform: `translateX(${currentSongInfo.animationPercentage}%)`
     }
 
+    // active song indicator
+    const activeLibraryHandler = ( nextPrev ) => {
+        const newSongs = songs.map( ( song ) => {
+            if ( song.id === nextPrev.id ) {
+                return {
+                    ...song,
+                    active: true,
+                };
+            } else {
+                return {
+                    ...song,
+                    active: false,
+                };
+            }
+        } );
+        setSongs( newSongs );
+    }
+
     // skip functionality
     const skipSongHandler = async ( direction ) => {
         // find index of current song
@@ -59,25 +77,6 @@ const Controller = ( { songs, setSongs, currentSong, setCurrentSong, isPlaying, 
         // autoplay when skip song
         if ( isPlaying ) audioRef.current.play();
     }
-
-    // change each song active status
-    const activeLibraryHandler = ( nextPrev ) => {
-        const newSongs = songs.map( ( song ) => {
-            if ( song.id === nextPrev.id ) {
-                return {
-                    ...song,
-                    active: true,
-                };
-            } else {
-                return {
-                    ...song,
-                    active: false,
-                };
-            }
-        } );
-        setSongs( newSongs );
-    }
-
 
 
     return (

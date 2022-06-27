@@ -30,6 +30,12 @@
 
 @media screen and (max-width: 768px) {
     .display-song {
+        margin-bottom: 0;
+
+        &__title {
+            padding: 2rem 1rem 1rem;
+        }
+
         &__cover {
             width: 50%;
         }
@@ -39,7 +45,7 @@
 @media screen and (max-width: 400px) {
     .display-song {
         &__cover {
-            width: 70%;
+            width: 60%;
         }
     }
 }
