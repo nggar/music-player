@@ -13,15 +13,14 @@ import audio7 from '../files/audio-7.mp3';
 const musicSource = () => {
     return [
         {
-            name: "Benson & Hedges",
-            cover: "https://chillhop.com/wp-content/uploads/2022/04/73f23095038f6f023083520706f3e5345f5dd682-1024x1024.jpg",
-            artist: "Masked Man",
-            audio: audio0,
-            color: ['#1CB4E6', '#C7E7F6'],
+            name: "Rooftop Breeze",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/42878bcb02c1a3613f4913b226674cd36bac9830-1024x1024.jpg",
+            artist: "Smile High, Richard Vagner",
+            audio: audio4,
+            color: ['#C89601', '#274477'],
             id: uuidv4(),
             active: true,
         },
-
         {
             name: "Inside a Saltwater Room",
             cover: "https://chillhop.com/wp-content/uploads/2021/09/6a9ef8ac00e168d3308fdf9e336874c03fab829d-1024x1024.jpg",
@@ -50,15 +49,6 @@ const musicSource = () => {
             active: false,
         },
         {
-            name: "Rooftop Breeze",
-            cover: "https://chillhop.com/wp-content/uploads/2022/05/42878bcb02c1a3613f4913b226674cd36bac9830-1024x1024.jpg",
-            artist: "Smile High, Richard Vagner",
-            audio: audio4,
-            color: ['#C89601', '#274477'],
-            id: uuidv4(),
-            active: false,
-        },
-        {
             name: "Frisky Feeling",
             cover: "https://chillhop.com/wp-content/uploads/2022/01/5753da482a6839b31e4905b22a2f8d65913e7eb4-1024x1024.jpg",
             artist: "Ben Bada Boom",
@@ -82,6 +72,15 @@ const musicSource = () => {
             artist: "Makzo, Mama Aiuto",
             audio: audio5,
             color: ['#F6C943', '#B6D1DA'],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Benson & Hedges",
+            cover: "https://chillhop.com/wp-content/uploads/2022/04/73f23095038f6f023083520706f3e5345f5dd682-1024x1024.jpg",
+            artist: "Masked Man",
+            audio: audio0,
+            color: ['#1CB4E6', '#C7E7F6'],
             id: uuidv4(),
             active: false,
         },
