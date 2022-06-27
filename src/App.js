@@ -86,6 +86,7 @@ function App() {
                 onLoadedMetadata={timeUpdateHandler}
                 onTimeUpdate={timeUpdateHandler}
                 onEnded={songEndedHandler}
+                preload='auto'
             >
             </audio>
         </div>
