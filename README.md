@@ -1,6 +1,6 @@
 # Hope | Music Player
 
-![screenshot](./screenshot.png)
+![screenshot](./screenshott.png)
 
 ## Demo link:
 Access this app at <a href="https://hope-music-player.netlify.app/">
@@ -9,6 +9,7 @@ Access this app at <a href="https://hope-music-player.netlify.app/">
 
 ## About The App
 This is an app that i build to practice my javascript and react skill by implementing music player functionality, such as skip song, autoplay, play and pause, dynamically change song highlight, and much more.
+
 
 
 ## Technologies
