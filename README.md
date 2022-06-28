@@ -1,6 +1,6 @@
 # Hope | Music Player
 
-![screenshot](./public/hope-music-player.png)
+![screenshot](./screenshot.png)
 
 ## Demo link:
 Access this app at <a href="https://hope-music-player.netlify.app/">
@@ -23,7 +23,7 @@ This is an app that i build to practice my javascript and react skill by impleme
 
 
 ## Status
-maybe i will add more functionality in the future.
+Completed. <br>maybe i will add more functionality in the future.
 
 
 ## Credits

@@ -1,23 +1,23 @@
 import { v4 as uuidv4 } from 'uuid';
 
 // Import audio files
-import audio0 from '../files/audio-0.mp3';
-import audio1 from '../files/audio-1.mp3';
-import audio2 from '../files/audio-2.mp3';
-import audio3 from '../files/audio-3.mp3';
-import audio4 from '../files/audio-4.mp3';
-import audio5 from '../files/audio-5.mp3';
-import audio6 from '../files/audio-6.mp3';
-import audio7 from '../files/audio-7.mp3';
+import audio0 from '../audio/audio-0.mp3';
+import audio1 from '../audio/audio-1.mp3';
+import audio2 from '../audio/audio-2.mp3';
+import audio3 from '../audio/audio-3.mp3';
+import audio4 from '../audio/audio-4.mp3';
+import audio5 from '../audio/audio-5.mp3';
+import audio6 from '../audio/audio-6.mp3';
+import audio7 from '../audio/audio-7.mp3';
 
 const musicSource = () => {
     return [
         {
-            name: "Rooftop Breeze",
-            cover: "https://chillhop.com/wp-content/uploads/2022/05/42878bcb02c1a3613f4913b226674cd36bac9830-1024x1024.jpg",
-            artist: "Smile High, Richard Vagner",
-            audio: audio4,
-            color: ['#C89601', '#274477'],
+            name: "Flip Flop Vibe",
+            cover: "https://chillhop.com/wp-content/uploads/2021/03/e2cf41018e0c244f7f683dd6f6313551996a2952-1024x1024.jpg",
+            artist: "The BREED",
+            audio: audio7,
+            color: ['#892E42', '#FADCA8'],
             id: uuidv4(),
             active: true,
         },
@@ -49,6 +49,15 @@ const musicSource = () => {
             active: false,
         },
         {
+            name: "Polaroid",
+            cover: "https://chillhop.com/wp-content/uploads/2021/09/501327d9a200bed56717f5f4a0fa7e4517c491c9-1024x1024.jpg",
+            artist: "Makzo, Mama Aiuto",
+            audio: audio5,
+            color: ['#F8C840', '#8A2C3D'],
+            id: uuidv4(),
+            active: false,
+        },
+        {
             name: "Frisky Feeling",
             cover: "https://chillhop.com/wp-content/uploads/2022/01/5753da482a6839b31e4905b22a2f8d65913e7eb4-1024x1024.jpg",
             artist: "Ben Bada Boom",
@@ -58,20 +67,11 @@ const musicSource = () => {
             active: false,
         },
         {
-            name: "Flip Flop Vibe",
-            cover: "https://chillhop.com/wp-content/uploads/2021/03/e2cf41018e0c244f7f683dd6f6313551996a2952-1024x1024.jpg",
-            artist: "The BREED",
-            audio: audio7,
-            color: ['#892E42', '#FADCA8'],
-            id: uuidv4(),
-            active: false,
-        },
-        {
-            name: "Polaroid",
-            cover: "https://chillhop.com/wp-content/uploads/2021/09/501327d9a200bed56717f5f4a0fa7e4517c491c9-1024x1024.jpg",
-            artist: "Makzo, Mama Aiuto",
-            audio: audio5,
-            color: ['#F6C943', '#B6D1DA'],
+            name: "Rooftop Breeze",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/42878bcb02c1a3613f4913b226674cd36bac9830-1024x1024.jpg",
+            artist: "Smile High, Richard Vagner",
+            audio: audio4,
+            color: ['#C89601', '#274477'],
             id: uuidv4(),
             active: false,
         },
