@@ -5,24 +5,23 @@ Access this app at <a href="https://hope-music-player.netlify.app/">
       hope-music-player.netlify.app
     </a>
 
-## Table of Content:
-
-- [About The App](#about-the-app)
-- [Screenshots](#screenshots)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Status](#status)
-- [Credits](#credits)
+<br>
 
 ## About The App
 This is an app that i build to practice my javascript and react skill by implementing music player functionality, such as skip song, autoplay, play and pause, dynamically change song highlight, and much more.
+
+<br>
 
 ## Screenshots
 
 ![screenshot](./public/hope-music-player.png)
 
+<br>
+
 ## Technologies
 `react`, `sass`
+
+<br>
 
 ## Setup
 - download or clone the repository
@@ -30,8 +29,12 @@ This is an app that i build to practice my javascript and react skill by impleme
 - then run `npm start` to runs the app in the development mode.
 - open http://localhost:3000 to view it in the browser.
 
+<br>
+
 ## Status
 maybe i will add more functionality in the future.
+
+<br>
 
 ## Credits
 - [Dev Ed](https://github.com/developedbyed)
