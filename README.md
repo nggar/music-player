@@ -1,5 +1,4 @@
-# Project Title
-Hope | Music Player
+# Hope | Music Player
 
 ## Demo link:
 Access my site at [hope-music-player.netlify.app](hhttps://hope-music-player.netlify.app/)
