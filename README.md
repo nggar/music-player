@@ -1,7 +1,9 @@
 # Hope | Music Player
 
 ## Demo link:
-Access my site at [hope-music-player.netlify.app](hhttps://hope-music-player.netlify.app/)
+Access this app at <a href="https://hope-music-player.netlify.app/">
+      hope-music-player.netlify.app
+    </a>
 
 ## Table of Content:
 
