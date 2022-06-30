@@ -12,15 +12,16 @@ import audio7 from '../audio/audio-7.mp3';
 
 const musicSource = () => {
     return [
-        {
-            name: "Flip Flop Vibe",
-            cover: "https://chillhop.com/wp-content/uploads/2021/03/e2cf41018e0c244f7f683dd6f6313551996a2952-1024x1024.jpg",
-            artist: "The BREED",
-            audio: audio7,
-            color: ['#892E42', '#FADCA8'],
+                {
+            name: "Valse",
+            cover: "https://i.scdn.co/image/ab67616d0000b273b09ada4b5c5651dd37acb44d",
+            artist: "Plusma, Guillaume Muschaller",
+            audio: audio2,
+            color: ['#474149', '#D39068'],
             id: uuidv4(),
             active: true,
         },
+
         {
             name: "Inside a Saltwater Room",
             cover: "https://chillhop.com/wp-content/uploads/2021/09/6a9ef8ac00e168d3308fdf9e336874c03fab829d-1024x1024.jpg",
@@ -30,12 +31,13 @@ const musicSource = () => {
             id: uuidv4(),
             active: false,
         },
-        {
-            name: "Valse",
-            cover: "https://i.scdn.co/image/ab67616d0000b273b09ada4b5c5651dd37acb44d",
-            artist: "Plusma, Guillaume Muschaller",
-            audio: audio2,
-            color: ['#474149', '#D39068'],
+
+                {
+            name: "Flip Flop Vibe",
+            cover: "https://chillhop.com/wp-content/uploads/2021/03/e2cf41018e0c244f7f683dd6f6313551996a2952-1024x1024.jpg",
+            artist: "The BREED",
+            audio: audio7,
+            color: ['#892E42', '#FADCA8'],
             id: uuidv4(),
             active: false,
         },
